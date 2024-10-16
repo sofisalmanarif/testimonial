@@ -1,36 +1,19 @@
 "use client";
 import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
-import { cn } from "@/lib/utils";
+import ShimmerButton from "./ui/ShimmerButton";
+import { ModeToggle } from "./ToggleTheme";
+
 
 function Navbar({ className }: { className?: string }) {
     const [active, setActive] = useState<string | null>(null);
     return (
-      <div
-        className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
-      >
-        <Menu setActive={setActive}>
-          <MenuItem setActive={setActive} active={active} item="Services">
-            <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/web-dev">Web Development</HoveredLink>
-              <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-              <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-              <HoveredLink href="/branding">Branding</HoveredLink>
-            </div>
-          </MenuItem>
-          <MenuItem setActive={setActive} active={active} item="Products">
-            
-          </MenuItem>
-          <MenuItem setActive={setActive} active={active} item="Pricing">
-            <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/hobby">Hobby</HoveredLink>
-              <HoveredLink href="/individual">Individual</HoveredLink>
-              <HoveredLink href="/team">Team</HoveredLink>
-              <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-            </div>
-          </MenuItem>
-        </Menu>
-      </div>
+      <nav className="flex px-[140px] py-8 items-center justify-between">
+        <span className="font-semibold text-3xl bg-gradient-to-r from-blue-700 to-purple-500 text-transparent bg-clip-text">Testimonials.IO</span>
+
+        <div className="flex gap-4 items-center">
+          <ModeToggle/>
+          <ShimmerButton>Signin</ShimmerButton></div>
+      </nav>
     );
   }
   export default Navbar
