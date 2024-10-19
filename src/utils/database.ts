@@ -14,7 +14,9 @@ const connectDatabase = async ()=>{
             return;
     
         }
-        const dbConnection = await mongoose.connect(url, {})
+        const dbConnection = await mongoose.connect(url, {
+            dbName:"Testimonials"
+        })
         connection.isConnected = dbConnection.connections[0].readyState
         console.log("DataBase is connected")
     } catch (e) {
