@@ -5,6 +5,7 @@ interface TestimonialType extends Document {
     name:string;
     content: string;
     rating: number; 
+    isDisplayed:boolean
     photo:string;
 
 }
@@ -22,6 +23,9 @@ const testimonialSchema: Schema<TestimonialType> = new Schema({
     content: {
         type: String,
         required: true,
+    },
+    isDisplayed:{
+        type:Boolean
     },
     rating: {
         type: Number,
