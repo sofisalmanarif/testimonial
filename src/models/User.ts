@@ -1,7 +1,7 @@
 import mongoose,{Document, Schema} from 'mongoose'
 
 interface userType extends Document {
-    name: string,
+    username: string,
     email: string,
     password: string
     limit:number
@@ -9,7 +9,7 @@ interface userType extends Document {
 }
 
 const userSchema:Schema<userType>= new Schema({
-   name:{
+   username:{
     type:String,
     required:true
    },
