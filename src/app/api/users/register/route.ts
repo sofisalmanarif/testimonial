@@ -11,7 +11,8 @@ export async function POST(req: Request, res: Response) {
     try {
         
         const { username, email, password } = await req.json();
-        const user =await  User.find({email})
+        const user =await  User.findOne({email})
+        console.log(user)
         if(user){
             return Response.json({success:false,message:"Email Already Registered"},{status:400})
         }
