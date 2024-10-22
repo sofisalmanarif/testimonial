@@ -5,7 +5,6 @@ interface userType extends Document {
     email: string,
     password: string
     limit:number
-    testimonials:mongoose.Types.ObjectId[]
 }
 
 const userSchema:Schema<userType>= new Schema({
@@ -25,10 +24,6 @@ const userSchema:Schema<userType>= new Schema({
     type:Number,
     default:3
    },
-   testimonials:[{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:'Testimonial'
-   }]
     
 },{
     timestamps:true
