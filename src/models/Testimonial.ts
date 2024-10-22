@@ -1,17 +1,17 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 interface TestimonialType extends Document {
-    user: mongoose.Types.ObjectId; // Reference to the User
+    userId: mongoose.Types.ObjectId; // Reference to the User
     name:string;
     content: string;
     rating: number; 
     isDisplayed:boolean
-    photo:string;
+    photo?:string;
 
 }
 
 const testimonialSchema: Schema<TestimonialType> = new Schema({
-    user: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true,
@@ -32,6 +32,10 @@ const testimonialSchema: Schema<TestimonialType> = new Schema({
         min: 1, // Assuming a rating system from 1 to 5
         max: 5,
     },
+    photo:{
+        type:String,
+        default:"ejhhrhrehhru"
+    }
 }, {
     timestamps: true,
 });
