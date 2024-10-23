@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import ShimmerButton from "./ui/ShimmerButton";
 import { ModeToggle } from "./ToggleTheme";
+import Link from "next/link";
 
 
 function Navbar({ className }: { className?: string }) {
@@ -12,7 +13,11 @@ function Navbar({ className }: { className?: string }) {
 
         <div className="flex gap-4 items-center">
           <ModeToggle/>
-          <ShimmerButton>Signin</ShimmerButton></div>
+          <Link href={"/signup"}>
+          <ShimmerButton>Signin</ShimmerButton>
+          </Link>
+          
+          </div>
       </nav>
     );
   }
