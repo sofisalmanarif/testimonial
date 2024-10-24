@@ -1,19 +1,19 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 interface TestimonialType extends Document {
-    userId: mongoose.Types.ObjectId; // Reference to the User
+    spaceId: mongoose.Schema.Types.ObjectId; // Reference to the User
     name:string;
     content: string;
     rating: number; 
     isDisplayed:boolean
     photo?:string;
-
+    
 }
 
 const testimonialSchema: Schema<TestimonialType> = new Schema({
-    userId: {
+    spaceId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'Space',
         required: true,
     },
     name: {
