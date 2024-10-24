@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Label } from "../../../components/ui/label";
 import { Input } from "../../../components/ui/input";
 import { cn } from "@/lib/utils";
@@ -8,16 +8,21 @@ import {
   IconBrandGoogle,
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
-import { div } from "framer-motion/client";
+
 
 const Page = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    
-    console.log("Form submitted",name);
-  };
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
+  const handleSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      
+      console.log("Form submitted",email);
+    },
+    [email,password],
+  )
+  
 
-  const [name,setName] = useState<string>("")
 
   const BottomGradient = () => {
     return (
@@ -54,11 +59,11 @@ const Page = () => {
         
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
+          <Input value={email} onChange={e=>setEmail(e.target.value)} id="email" placeholder="projectmayhem@fc.com" type="email" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
-          <Input id="password" placeholder="••••••••" type="password" />
+          <Input value={password} onChange={e=>setPassword(e.target.value)} placeholder="••••••••" type="password" />
         </LabelInputContainer>
        
 
