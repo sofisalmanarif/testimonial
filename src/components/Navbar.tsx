@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import ShimmerButton from "./ui/ShimmerButton";
-import { ModeToggle } from "./ToggleTheme";
+
 import Link from "next/link";
 
 
@@ -12,7 +12,7 @@ function Navbar({ className }: { className?: string }) {
         <span className="font-semibold text-3xl bg-gradient-to-r from-blue-700 to-purple-500 text-transparent bg-clip-text">Testimonials.IO</span>
 
         <div className="flex gap-4 items-center">
-          <ModeToggle/>
+          
           <Link href={"/signup"}>
           <ShimmerButton>Signin</ShimmerButton>
           </Link>

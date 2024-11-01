@@ -2,10 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-import Navbar from "@/components/Navbar";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Spotlight } from "@/components/ui/Spotlight";
-
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -30,25 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`overflow-hidden ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`overflow-hidden bg-black ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Spotlight
-        className="-top-40 left-0 md:left-[20%] md:-top-20"
-        fill="#393BB2"
-        />
-         <Spotlight
-        className="-top-40 left-0 md:left-[100%] md:-top-20"
-        fill="#E2CBFF"
-        />
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-        <Navbar/>
         {children}
-        </ThemeProvider>
+        
       </body>
     </html>
   );
