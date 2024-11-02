@@ -6,7 +6,7 @@ const Page = () => {
     <main className='container mx-auto max-w-7xl flex-col flex gap-10'>
       <h1 className='text-3xl'>Dashboard</h1>
       <section className=' border-b pb-20 grid grid-cols-3 justify-items-center'>
-      <DashboardCard/>
+      <DashboardCard />
       <DashboardCard/>
       <DashboardCard/>
       </section>
